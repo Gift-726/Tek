@@ -4,6 +4,9 @@ import createGlobe from 'cobe'
 import { useEffect, useRef, useState } from 'react'
 import { Inter } from 'next/font/google'
 import { LandingSections } from '../components/landing/LandingSections'
+import SolutionsPage from '../components/landing/solutions/SolutionsPage'
+import { FooterSection } from '../components/landing/FooterSection'
+
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
 
@@ -50,6 +53,8 @@ const stats = [
 export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [scrolled, setScrolled] = useState(false)
+  const [view, setView] = useState<'landing' | 'solutions'>('landing')
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,7 +154,8 @@ export default function Page() {
   return (
     <div className={`teksphere-root ${inter.className}`}>
       {/* NAV */}
-      <nav className={`teksphere-nav ${scrolled ? 'teksphere-nav--scrolled' : ''}`}>
+            <nav className={`teksphere-nav ${scrolled ? 'teksphere-nav--scrolled' : ''}`}>
+
         <div className="teksphere-logo">
           <span className="teksphere-logo-icon">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -158,11 +164,33 @@ export default function Page() {
               <path d="M4 12h4v8H4z" fill="#1a2e6e"/>
             </svg>
           </span>
-          <span className="teksphere-logo-text">TEKSPHERE</span>
+                    <span 
+            className="teksphere-logo-text" 
+            onClick={() => { setView('landing'); window.scrollTo(0, 0); }}
+            style={{ cursor: 'pointer' }}
+          >TEKSPHERE</span>
+
         </div>
         <ul className="teksphere-nav-links">
           {['Solutions & Services', 'Partners', 'About Us', 'Contact'].map(l => (
-            <li key={l}><a href="#">{l}</a></li>
+                        <li key={l}>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (l === 'Solutions & Services') {
+                    setView('solutions');
+                    window.scrollTo(0, 0);
+                  } else {
+                    setView('landing');
+                  }
+                }}
+                className={view === 'solutions' && l === 'Solutions & Services' ? 'active' : ''}
+              >
+                {l}
+              </a>
+            </li>
+
           ))}
         </ul>
         <button className="teksphere-cta-btn teksphere-cta-btn--nav">
@@ -170,7 +198,10 @@ export default function Page() {
         </button>
       </nav>
 
-      {/* HERO */}
+            {view === 'landing' ? (
+        <>
+          {/* HERO */}
+
       <main className="teksphere-hero">
         {/* Left */}
         <div className="teksphere-hero-left">
@@ -186,7 +217,11 @@ export default function Page() {
             and intelligently.
           </p>
           <div className="teksphere-hero-actions">
-            <button className="teksphere-cta-btn teksphere-cta-btn--primary">
+                        <button 
+              className="teksphere-cta-btn teksphere-cta-btn--primary"
+              onClick={() => { setView('solutions'); window.scrollTo(0, 0); }}
+            >
+
               Explore Solutions <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
             </button>
             <button className="teksphere-cta-btn teksphere-cta-btn--ghost">
@@ -255,7 +290,15 @@ export default function Page() {
         </div>
       </main>
 
-      <LandingSections />
+                <LandingSections />
+        </>
+      ) : (
+        <div className="solutions-view">
+          <SolutionsPage />
+          <FooterSection />
+        </div>
+      )}
+
 
       <style jsx>{`
         /* ── Root ─────────────────────────── */
@@ -325,7 +368,12 @@ export default function Page() {
           font-weight: 500;
           transition: color 0.15s;
         }
-        .teksphere-nav-links a:hover { color: #0d1b3e; }
+                .teksphere-nav-links a:hover { color: #0d1b3e; }
+        .teksphere-nav-links a.active {
+          color: #3b5bdb;
+          font-weight: 700;
+        }
+
 
         /* ── Buttons ─────────────────────── */
         .teksphere-cta-btn {
