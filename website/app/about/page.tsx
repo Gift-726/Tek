@@ -38,7 +38,21 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <div className={styles.aboutPage} style={{ paddingTop: '80px' }}>
+    <div className={styles.aboutPage}>
+      <header className={styles.nav}>
+        <div className={`${styles.container} ${styles.navInner}`}>
+          <Link href='/' className={styles.brand}>TEKSPHERE</Link>
+          <nav className={styles.menu}>
+            <Link href='/solutions'>Solutions</Link>
+            <Link href='/solutions'>Services</Link>
+            <Link href='/'>Industries</Link>
+            <Link href='/about' className={styles.activeLink}>About Us</Link>
+            <Link href='/'>Insights</Link>
+            <Link href='/'>Contact</Link>
+          </nav>
+          <button className={styles.navCta}>Let&apos;s Talk</button>
+        </div>
+      </header>
 
       <section className={styles.hero}>
         <div className={`${styles.container} ${styles.heroGrid}`}>

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { services } from './data'
 import styles from './landing.module.css'
 import {
@@ -60,9 +61,9 @@ export function ServicesSection() {
         </div>
 
         <div className={styles.sectionActionRow}>
-          <button className={styles.exploreButton}>
+          <Link href="/solutions" className={styles.exploreButton}>
             Explore All Services <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_outward</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>
