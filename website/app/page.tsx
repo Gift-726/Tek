@@ -1,6 +1,7 @@
 'use client'
 
 import createGlobe from 'cobe'
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { Inter } from 'next/font/google'
 import { LandingSections } from '../components/landing/LandingSections'
@@ -53,8 +54,6 @@ const stats = [
 export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [scrolled, setScrolled] = useState(false)
-  const [view, setView] = useState<'landing' | 'solutions'>('landing')
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,55 +152,6 @@ export default function Page() {
 
   return (
     <div className={`teksphere-root ${inter.className}`}>
-      {/* NAV */}
-            <nav className={`teksphere-nav ${scrolled ? 'teksphere-nav--scrolled' : ''}`}>
-
-        <div className="teksphere-logo">
-          <span className="teksphere-logo-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path d="M4 4h9v4H8v4H4V4z" fill="#1a2e6e"/>
-              <path d="M13 4h11v4h-7v4h-4V4z" fill="#3b5bdb"/>
-              <path d="M4 12h4v8H4z" fill="#1a2e6e"/>
-            </svg>
-          </span>
-                    <span 
-            className="teksphere-logo-text" 
-            onClick={() => { setView('landing'); window.scrollTo(0, 0); }}
-            style={{ cursor: 'pointer' }}
-          >TEKSPHERE</span>
-
-        </div>
-        <ul className="teksphere-nav-links">
-          {['Solutions & Services', 'Partners', 'About Us', 'Contact'].map(l => (
-                        <li key={l}>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (l === 'Solutions & Services') {
-                    setView('solutions');
-                    window.scrollTo(0, 0);
-                  } else {
-                    setView('landing');
-                  }
-                }}
-                className={view === 'solutions' && l === 'Solutions & Services' ? 'active' : ''}
-              >
-                {l}
-              </a>
-            </li>
-
-          ))}
-        </ul>
-        <button className="teksphere-cta-btn teksphere-cta-btn--nav">
-          Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
-        </button>
-      </nav>
-
-            {view === 'landing' ? (
-        <>
-          {/* HERO */}
-
       <main className="teksphere-hero">
         {/* Left */}
         <div className="teksphere-hero-left">
@@ -217,13 +167,9 @@ export default function Page() {
             and intelligently.
           </p>
           <div className="teksphere-hero-actions">
-                        <button 
-              className="teksphere-cta-btn teksphere-cta-btn--primary"
-              onClick={() => { setView('solutions'); window.scrollTo(0, 0); }}
-            >
-
+            <Link href="/solutions" className="teksphere-cta-btn teksphere-cta-btn--primary">
               Explore Solutions <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
-            </button>
+            </Link>
             <button className="teksphere-cta-btn teksphere-cta-btn--ghost">
               <span className="teksphere-play-icon">▶</span> Watch Overview
             </button>
@@ -258,29 +204,12 @@ export default function Page() {
                   />
                 </defs>
                 <text className="orbit-text">
-                  
                   <textPath href="#teksOrbitPath">
                     {'Powering Business With Intelligent Technology · '.repeat(6)}
                   </textPath>
                 </text>
               </svg>
             </div>
-            {/* Marker labels (original logic) */}
-            {showcaseDefaultMarkers.map((m) => (
-              <div
-                key={m.id}
-                className="showcase-default-label"
-                style={
-                  {
-                    positionAnchor: `--cobe-${m.id}`,
-                    opacity: `var(--cobe-visible-${m.id}, 0)`,
-                    filter: `blur(var(--cobe-visible-${m.id}, 10px))`,
-                  } as React.CSSProperties
-                }
-              >
-                {m.label}
-              </div>
-            ))}
           </div>
         </div>
 
@@ -290,15 +219,8 @@ export default function Page() {
         </div>
       </main>
 
-                <LandingSections />
-        </>
-      ) : (
-        <div className="solutions-view">
-          <SolutionsPage />
-          <FooterSection />
-        </div>
-      )}
-
+      <LandingSections />
+      <FooterSection />
 
       <style jsx>{`
         /* ── Root ─────────────────────────── */
@@ -317,64 +239,6 @@ export default function Page() {
           overflow-x: hidden;
         }
 
-        /* ── Nav ─────────────────────────── */
-        .teksphere-nav {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-          padding: 0 3rem;
-          height: 80px;
-          background: transparent;
-          border-bottom: 1px solid transparent;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .teksphere-nav--scrolled {
-          height: 72px;
-          background: rgba(248, 249, 252, 0.85);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(0,0,0,0.06);
-          box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        .teksphere-logo {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          flex-shrink: 0;
-        }
-        .teksphere-logo-text {
-          font-size: 1.05rem;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          color: #0d1b3e;
-        }
-        .teksphere-nav-links {
-          display: flex;
-          gap: 1.75rem;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          flex: 1;
-          justify-content: center;
-        }
-        .teksphere-nav-links a {
-          font-size: 0.875rem;
-          color: #3a4666;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.15s;
-        }
-                .teksphere-nav-links a:hover { color: #0d1b3e; }
-        .teksphere-nav-links a.active {
-          color: #3b5bdb;
-          font-weight: 700;
-        }
-
-
         /* ── Buttons ─────────────────────── */
         .teksphere-cta-btn {
           border: none;
@@ -385,16 +249,8 @@ export default function Page() {
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
+          text-decoration: none;
         }
-        .teksphere-cta-btn--nav {
-          background: #0d1b3e;
-          color: #fff;
-          font-size: 0.875rem;
-          padding: 0.8rem 1.25rem;
-          border-radius: 8px;
-          flex-shrink: 0;
-        }
-        .teksphere-cta-btn--nav:hover { background: #1a2e6e; }
         .teksphere-cta-btn--primary {
           background: #0d1b3e;
           color: #fff;
@@ -431,14 +287,13 @@ export default function Page() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: center;
-          padding: 100px 3rem 2rem;
+          padding: 160px 3rem 4rem;
           gap: 2rem;
           position: relative;
           max-width: 1400px;
           margin: 0 auto;
           width: 100%;
         }
-
         /* ── Left content ─────────────────── */
         .teksphere-hero-left {
           display: flex;
@@ -446,27 +301,10 @@ export default function Page() {
           gap: 1.5rem;
           max-width: 560px;
         }
-        .teksphere-eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          color: #3a4666;
-          text-transform: uppercase;
-        }
-        .teksphere-eyebrow-dot {
-          width: 8px;
-          height: 8px;
-          background: #3b5bdb;
-          border-radius: 50%;
-          flex-shrink: 0;
-        }
         .teksphere-headline {
-          font-size: clamp(2rem, 3.2vw, 3.2rem);
+          font-size: clamp(2.4rem, 4.5vw, 4.5rem);
           font-weight: 800;
-          line-height: 1.12;
+          line-height: 1.1;
           color: #0d1b3e;
           margin: 0;
           letter-spacing: -0.02em;
@@ -475,10 +313,10 @@ export default function Page() {
           color: #3b5bdb;
         }
         .teksphere-subtext {
-          font-size: 0.95rem;
+          font-size: 1.05rem;
           color: #5a6480;
           line-height: 1.7;
-          max-width: 460px;
+          max-width: 480px;
           margin: 0;
         }
         .teksphere-hero-actions {
@@ -491,8 +329,8 @@ export default function Page() {
         .teksphere-stats {
           display: flex;
           gap: 2.5rem;
-          padding-top: 0.5rem;
-          border-top: 1px solid #e4e8f0;
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(0,0,0,0.06);
           flex-wrap: nowrap;
         }
         .teksphere-stat {
@@ -501,13 +339,13 @@ export default function Page() {
           gap: 0.15rem;
         }
         .teksphere-stat-value {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           font-weight: 800;
           color: #0d1b3e;
           letter-spacing: -0.02em;
         }
         .teksphere-stat-label {
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           color: #7a84a0;
           font-weight: 500;
         }
@@ -521,7 +359,7 @@ export default function Page() {
         }
         .teksphere-globe-wrap {
           position: relative;
-          width: min(580px, 100%);
+          width: min(640px, 100%);
           aspect-ratio: 1;
           user-select: none;
         }
@@ -541,14 +379,38 @@ export default function Page() {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-family: var(--font-pixel), monospace;
-          font-size: clamp(3.5rem, 3.5vw, 5rem);
-          font-weight: normal;
+          font-family: inherit;
+          font-size: clamp(2.5rem, 4vw, 4.5rem);
+          font-weight: 900;
           color: #3b5bdb;
           z-index: 5;
           pointer-events: none;
           letter-spacing: 0.15em;
-          text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 1);
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.8);
+        }
+
+        .orbit-ring {
+          position: absolute;
+          inset: -10%;
+          pointer-events: none;
+          opacity: 0.6;
+        }
+        .orbit-svg {
+          width: 100%;
+          height: 100%;
+          animation: rotateClockwise 60s linear infinite;
+        }
+        .orbit-text {
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          fill: #3b5bdb;
+          text-transform: uppercase;
+        }
+
+        @keyframes rotateClockwise {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         /* Scroll hint */
@@ -557,10 +419,10 @@ export default function Page() {
           left: 0;
           bottom: 2.5rem;
           writing-mode: vertical-rl;
-          font-size: 0.6rem;
+          font-size: 0.65rem;
           letter-spacing: 0.15em;
           color: #aab0c4;
-          font-weight: 500;
+          font-weight: 600;
           text-transform: uppercase;
           display: flex;
           align-items: center;
@@ -570,7 +432,7 @@ export default function Page() {
           content: '';
           display: block;
           width: 1px;
-          height: 36px;
+          height: 48px;
           background: #d0d5e8;
         }
 
@@ -578,21 +440,18 @@ export default function Page() {
         @media (max-width: 900px) {
           .teksphere-hero {
             grid-template-columns: 1fr;
-            padding: 0 1.5rem 2rem;
+            padding: 100px 1.5rem 4rem;
           }
           .teksphere-hero-right {
             order: -1;
           }
           .teksphere-globe-wrap {
-            width: min(380px, 90vw);
+            width: min(440px, 90vw);
           }
-          .teksphere-nav {
-            padding: 0 1.5rem;
-          }
-          .teksphere-nav-links { display: none; }
           .teksphere-scroll-hint { display: none; }
         }
       `}</style>
     </div>
   )
 }
+

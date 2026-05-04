@@ -1,0 +1,391 @@
+.aboutPage {
+  --primary: #071a52;
+  --accent: #3b82f6;
+  --text: #112247;
+  --muted: #5f6f90;
+  --line: #e3e9f4;
+  color: var(--text);
+  background: #f7f9fe;
+}
+
+.container {
+  width: min(1200px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247, 249, 254, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(17, 34, 71, 0.06);
+}
+
+.navInner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.menu a {
+  color: #4a5c82;
+}
+
+.menu .activeLink {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.navCta {
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+.hero {
+  padding: 58px 0 48px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(440px, 1.1fr);
+  gap: 38px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6a7ca0;
+  margin-bottom: 14px;
+}
+
+.heroTitle {
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.heroTitle span {
+  color: var(--accent);
+}
+
+.heroText {
+  margin-top: 18px;
+  max-width: 52ch;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.heroVisual {
+  min-height: 420px;
+  background: url('/about-hero-bg.png') center / contain no-repeat;
+}
+
+.values {
+  padding: 18px 0 30px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.valueCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 18px;
+  min-height: 166px;
+}
+
+.valueCard h3 {
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.valueCard p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.missionVision {
+  padding: 8px 0 38px;
+}
+
+.missionVisionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.missionCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.missionCard h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6a7ca0;
+}
+
+.missionCard p {
+  margin-top: 10px;
+  color: #374f76;
+  line-height: 1.8;
+}
+
+.expertise {
+  padding: 26px 0 40px;
+}
+
+.expertiseHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.expertiseHead h2 {
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+.expertiseHead p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.expertiseCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 14px;
+  min-height: 138px;
+}
+
+.expertiseCard h3 {
+  font-size: 14px;
+  color: #0d265f;
+  line-height: 1.4;
+}
+
+.why {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #071a52 0%, #0f2f86 100%);
+  color: #fff;
+  padding: 34px 0;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: center;
+}
+
+.whyTitle {
+  font-size: 38px;
+  line-height: 1.16;
+}
+
+.whyItem {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.stats {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-top: 20px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat h3 {
+  font-size: 44px;
+  line-height: 1;
+  color: #0e2a67;
+}
+
+.stat p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.team {
+  padding: 44px 0 36px;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+}
+
+.teamCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.teamCard h2 {
+  color: var(--primary);
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.teamCard p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.teamButton {
+  margin-top: 18px;
+  border: 1px solid #ced8ea;
+  background: #fff;
+  color: #153266;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-weight: 600;
+}
+
+.teamImage {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  min-height: 250px;
+  background: linear-gradient(125deg, #001a4e, #2352b8);
+}
+
+.cta {
+  margin-top: 20px;
+  background: linear-gradient(110deg, #071a52 0%, #0b2876 100%);
+  color: #fff;
+  border-radius: 0;
+}
+
+.ctaInner {
+  padding: 34px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ctaTitle {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 10px;
+}
+
+.ctaButton {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #fff;
+  color: #0f2d70;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.footer {
+  padding: 26px 0;
+  border-top: 1px solid #d8e1f1;
+  color: #4e638d;
+  font-size: 13px;
+}
+
+@media (max-width: 1120px) {
+  .heroGrid,
+  .teamGrid,
+  .expertiseHead,
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .expertiseGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .valuesGrid,
+  .missionVisionGrid,
+  .expertiseGrid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .heroVisual {
+    min-height: 300px;
+  }
+
+  .ctaInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
