@@ -10,7 +10,7 @@
   "repository": "shuding/cobe",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm --filter website build",
+    "build": "pnpm --filter cobe-site build",
     "chrome:debug": "open -na \"Google Chrome\" --args --new-window --disable-frame-rate-limit --user-data-dir=\"/tmp/chrome_dev_session\" --disable-web-security http://localhost:3000/playground"
   },
   "devDependencies": {
