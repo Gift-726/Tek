@@ -5,6 +5,7 @@ import styles from './Navbar.module.css'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -14,6 +15,13 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
@@ -30,7 +38,19 @@ export default function Navbar() {
             <span className={styles.logoText}>TEKSPHERE</span>
           </Link>
         </div>
-        <ul className={styles.menu}>
+
+        {/* Mobile Toggle Button */}
+        <button 
+          className={styles.mobileToggle} 
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          <span className="material-symbols-outlined">
+            {isMenuOpen ? 'close' : 'menu'}
+          </span>
+        </button>
+
+        <ul className={`${styles.menu} ${isMenuOpen ? styles.menuMobileOpen : ''}`}>
           <li>
             <Link 
               href="/solutions" 
@@ -63,11 +83,22 @@ export default function Navbar() {
               Contact
             </Link>
           </li>
+          {/* Mobile CTA inside menu */}
+          <li className={styles.mobileCtaLi}>
+            <Link href="/contact#contact-form" className={styles.navCta}>
+              Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
+            </Link>
+          </li>
         </ul>
-        <Link href="/contact#contact-form" className={styles.navCta}>
+
+        {/* Desktop CTA */}
+        <Link href="/contact#contact-form" className={`${styles.navCta} ${styles.desktopCta}`}>
           Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
         </Link>
       </div>
+
+      {/* Overlay for mobile menu */}
+      {isMenuOpen && <div className={styles.overlay} onClick={toggleMenu} />}
     </nav>
   )
 }

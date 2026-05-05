@@ -450,22 +450,66 @@ export default function Page() {
         }
 
         /* ── Responsive ─────────────────── */
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+          .teksphere-hero {
+            padding: 100px 2.5rem 2rem;
+          }
+          .teksphere-headline {
+            font-size: 2.8rem;
+          }
+        }
+
+        @media (max-width: 1024px) {
           .teksphere-hero {
             grid-template-columns: 1fr;
-            padding: 0 1.5rem 2rem;
+            padding: 120px 2rem 4rem;
+            text-align: center;
+            gap: 3rem;
+          }
+          .teksphere-hero-left {
+            align-items: center;
+            max-width: 100%;
           }
           .teksphere-hero-right {
             order: -1;
           }
           .teksphere-globe-wrap {
-            width: min(380px, 90vw);
+            width: min(440px, 100%);
           }
-          .teksphere-nav {
-            padding: 0 1.5rem;
+          .teksphere-subtext {
+            max-width: 100%;
           }
-          .teksphere-nav-links { display: none; }
+          .teksphere-hero-actions {
+            justify-content: center;
+          }
+          .teksphere-stats {
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+          }
           .teksphere-scroll-hint { display: none; }
+        }
+
+        @media (max-width: 600px) {
+          .teksphere-hero {
+            padding: 100px 1.25rem 3rem;
+          }
+          .teksphere-headline {
+            font-size: 2.25rem;
+          }
+          .teksphere-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            text-align: left;
+          }
+          .teksphere-stat {
+            align-items: center;
+            text-align: center;
+          }
+          .teksphere-globe-center-text {
+            font-size: 3rem;
+          }
         }
       `}</style>
     </div>

@@ -645,6 +645,15 @@
   gap: 2rem;
 }
 
+@media (max-width: 1100px) {
+  .container {
+    width: min(100% - 64px, 1200px);
+  }
+  .hero {
+    padding: 160px 0 100px;
+  }
+}
+
 @media (max-width: 1024px) {
   .heroGrid, .teamGrid, .ctaInner {
     grid-template-columns: 1fr;
@@ -655,12 +664,16 @@
     margin: 0 auto;
   }
   
-  .valuesGrid, .expertiseGrid {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expertiseGrid {
     grid-template-columns: repeat(2, 1fr);
   }
   
   .whyGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .footerGrid {
@@ -687,5 +700,85 @@
 
   .teamImage {
     height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 140px 0 80px;
+    min-height: auto;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .eyebrowWrapper {
+    justify-content: center;
+  }
+
+  .missionCard {
+    padding: 24px;
+    gap: 1.5rem;
+  }
+
+  .missionIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .missionContent p {
+    font-size: 0.95rem;
+  }
+
+  .why {
+    padding: 60px 0;
+  }
+
+  .whyTitle {
+    font-size: 2rem;
+  }
+
+  .stats {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .team {
+    padding: 60px 0;
+  }
+
+  .teamTitle {
+    font-size: 2rem;
+  }
+
+  .cta {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .ctaInner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaPrimary, .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }

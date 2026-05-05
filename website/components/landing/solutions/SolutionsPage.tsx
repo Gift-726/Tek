@@ -629,6 +629,15 @@ export default function SolutionsPage() {
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1100px) {
+          .solutions-container {
+            width: min(100% - 64px, 1200px);
+          }
+          .solutions-hero {
+            padding: 160px 0 80px;
+          }
+        }
+
         @media (max-width: 1024px) {
           .solutions-services-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -652,8 +661,15 @@ export default function SolutionsPage() {
           .solutions-cta-visual { display: none; }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .solutions-it-grid { grid-template-columns: 1fr; }
+          .solutions-hero { padding: 120px 0 60px; }
+          .solutions-hero-title { font-size: 2.2rem; }
+          .solutions-learn-btn { width: 100%; justify-content: center; }
+          .solutions-service-card { padding: 24px 20px; }
+          .solutions-service-btn { width: 100%; justify-content: center; }
+          .solutions-cta-inner { flex-direction: column; text-align: center; }
+          .solutions-cta-btn { width: 100%; justify-content: center; }
         }
       `}</style>
     </div>

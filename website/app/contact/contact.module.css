@@ -421,3 +421,60 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 600px) {
+  .main {
+    padding-top: 100px;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .topCards {
+    grid-template-columns: 1fr;
+  }
+
+  .formCard {
+    padding: 20px;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sendBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .visitCard {
+    padding: 16px;
+  }
+
+  .visitTitle {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaBand h3 {
+    font-size: 1.6rem;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryCta, .secondaryCta {
+    width: 100%;
+    justify-content: center;
+  }
+}
