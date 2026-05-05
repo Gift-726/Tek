@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google'
 import { LandingSections } from '../components/landing/LandingSections'
 import SolutionsPage from '../components/landing/solutions/SolutionsPage'
 import { FooterSection } from '../components/landing/FooterSection'
+import Navbar from '../components/Navbar'
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
@@ -53,16 +54,6 @@ const stats = [
 
 export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [scrolled, setScrolled] = useState(false)
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -154,38 +145,7 @@ export default function Page() {
   return (
     <div className={`teksphere-root ${inter.className}`}>
       {/* NAV */}
-            <nav className={`teksphere-nav ${scrolled ? 'teksphere-nav--scrolled' : ''}`}>
-
-        <div className="teksphere-logo">
-          <Link href="/" className="teksphere-logo-link">
-            <span className="teksphere-logo-icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M4 4h9v4H8v4H4V4z" fill="#1a2e6e"/>
-                <path d="M13 4h11v4h-7v4h-4V4z" fill="#3b5bdb"/>
-                <path d="M4 12h4v8H4z" fill="#1a2e6e"/>
-              </svg>
-            </span>
-            <span className="teksphere-logo-text">TEKSPHERE</span>
-          </Link>
-        </div>
-        <ul className="teksphere-nav-links">
-          <li>
-            <Link href="/solutions">Solutions & Services</Link>
-          </li>
-          <li>
-            <Link href="/">Partners</Link>
-          </li>
-          <li>
-            <Link href="/about">About Us</Link>
-          </li>
-          <li>
-            <Link href="/">Contact</Link>
-          </li>
-        </ul>
-        <button className="teksphere-cta-btn teksphere-cta-btn--nav">
-          Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
-        </button>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
       <main className="teksphere-hero">
@@ -205,7 +165,7 @@ export default function Page() {
           <div className="teksphere-hero-actions">
                         <Link 
               href="/solutions"
-              className="teksphere-cta-btn teksphere-cta-btn--primary"
+              className="teksphere-cta-btn teksphere-cta-btn--nav"
             >
               Explore Solutions <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
             </Link>
@@ -276,7 +236,6 @@ export default function Page() {
       </main>
 
       <LandingSections />
-      <FooterSection />
 
 
       <style jsx>{`
@@ -297,65 +256,10 @@ export default function Page() {
         }
 
         /* ── Nav ─────────────────────────── */
-        .teksphere-nav {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-          padding: 0 3rem;
-          height: 80px;
-          background: transparent;
-          border-bottom: 1px solid transparent;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .teksphere-nav--scrolled {
-          height: 72px;
-          background: rgba(248, 249, 252, 0.85);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(0,0,0,0.06);
-          box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        .teksphere-logo-link {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          text-decoration: none;
-        }
-        .teksphere-logo-text {
-          font-size: 1.05rem;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          color: #0d1b3e;
-        }
-        .teksphere-nav-links {
-          display: flex;
-          gap: 1.75rem;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          flex: 1;
-          justify-content: center;
-        }
-        .teksphere-nav-links a {
-          font-size: 0.875rem;
-          color: #3a4666;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.15s;
-        }
-                .teksphere-nav-links a:hover { color: #0d1b3e; }
-        .teksphere-nav-links a.active {
-          color: #3b5bdb;
-          font-weight: 700;
-        }
 
 
         /* ── Buttons ─────────────────────── */
-        .teksphere-cta-btn {
+        :global(.teksphere-cta-btn) {
           border: none;
           cursor: pointer;
           font-family: inherit;
@@ -364,25 +268,18 @@ export default function Page() {
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
+          text-decoration: none;
         }
-        .teksphere-cta-btn--nav {
+        :global(.teksphere-cta-btn--nav) {
           background: #0d1b3e;
-          color: #fff;
+          color: #fff !important;
           font-size: 0.875rem;
           padding: 0.8rem 1.25rem;
           border-radius: 8px;
           flex-shrink: 0;
         }
-        .teksphere-cta-btn--nav:hover { background: #1a2e6e; }
-        .teksphere-cta-btn--primary {
-          background: #0d1b3e;
-          color: #fff;
-          font-size: 0.95rem;
-          padding: 0.8rem 1.75rem;
-          border-radius: 10px;
-        }
-        .teksphere-cta-btn--primary:hover { background: #1a2e6e; }
-        .teksphere-cta-btn--ghost {
+        :global(.teksphere-cta-btn--nav:hover) { background: #1a2e6e; }
+        :global(.teksphere-cta-btn--ghost) {
           background: transparent;
           color: #0d1b3e;
           font-size: 0.95rem;
@@ -390,8 +287,8 @@ export default function Page() {
           border-radius: 10px;
           border: 1.5px solid #d0d5e8;
         }
-        .teksphere-cta-btn--ghost:hover { border-color: #0d1b3e; }
-        .teksphere-play-icon {
+        :global(.teksphere-cta-btn--ghost:hover) { border-color: #0d1b3e; }
+        :global(.teksphere-play-icon) {
           width: 28px;
           height: 28px;
           background: #0d1b3e;

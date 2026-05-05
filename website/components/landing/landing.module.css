@@ -1,8 +1,14 @@
-.landingShell {
+.landingShell,
+.section,
+.ctaSection,
+.footerSection {
   --landing-primary: #0A1128;
   --landing-secondary: #3B82F6;
   --landing-tertiary: #F8FAFC;
   --landing-neutral: #64748B;
+}
+
+.landingShell {
   width: 100%;
   background: var(--landing-tertiary);
   color: var(--landing-primary);
@@ -299,9 +305,25 @@
   box-shadow: 0 16px 36px color-mix(in srgb, var(--landing-primary) 18%, transparent);
 }
 
-.secondaryButton:hover,
-.primaryButton:hover {
-  transform: translateY(-1px);
+.ctaButtonPrimary {
+  background: #ffffff;
+  color: var(--landing-primary) !important;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.ctaButtonPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  background: #ffffff;
+  color: var(--landing-secondary);
 }
 
 .expertiseSection {

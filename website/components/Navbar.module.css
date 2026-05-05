@@ -1,0 +1,104 @@
+.nav {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navScrolled {
+  height: 72px;
+  background: rgba(248, 249, 252, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.navInner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0d1b3e;
+}
+
+.menu {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.menu a {
+  font-size: 0.875rem;
+  color: #3a4666;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.menu a:hover {
+  color: #0d1b3e;
+}
+
+.activeLink {
+  color: #3b5bdb !important;
+  font-weight: 700 !important;
+}
+
+.navCta {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #0d1b3e;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navCta:hover {
+  background: #1a2e6e;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .navInner {
+    padding: 0 1.5rem;
+  }
+  .menu {
+    display: none;
+  }
+}

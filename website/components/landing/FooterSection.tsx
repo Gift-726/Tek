@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './landing.module.css'
 
 const solutionLinks = [
@@ -12,10 +13,11 @@ const solutionLinks = [
 const companyLinks = ['About Us', 'Careers', 'Case Studies', 'Insights', 'Partners']
 const resourceLinks = ['Blog', 'Whitepapers', 'FAQs', 'Support']
 
-export function FooterSection() {
+export function FooterSection({ showCta = true }: { showCta?: boolean }) {
   return (
     <>
-      <section className={`${styles.section} ${styles.ctaSection}`}>
+      {showCta && (
+        <section className={`${styles.section} ${styles.ctaSection}`}>
         <div className={`${styles.container} ${styles.ctaLayout}`}>
           <div>
             <h2 className={`${styles.title} ${styles.titleOnDark}`}>Ready to Build the Future with Us?</h2>
@@ -24,9 +26,12 @@ export function FooterSection() {
               secure, and grow.
             </p>
           </div>
-          <button className={styles.primaryButton}>Start Your Project</button>
+          <Link href="/solutions" className={styles.ctaButtonPrimary}>
+            Start Your Project <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_outward</span>
+          </Link>
         </div>
       </section>
+      )}
 
       <footer className={`${styles.section} ${styles.footerSection}`}>
         <div className={`${styles.container} ${styles.footerLayout}`}>
@@ -72,15 +77,15 @@ export function FooterSection() {
               <ul className={styles.footerList}>
                 <li className={styles.contactItem}>
                   <span className={`material-symbols-outlined ${styles.contactIcon}`}>call</span>
-                  <span>+1 (800) 123-4567</span>
+                  <span>+234 818 724 5441<br />+234 805 406 1288</span>
                 </li>
                 <li className={styles.contactItem}>
                   <span className={`material-symbols-outlined ${styles.contactIcon}`}>mail</span>
-                  <span>info@teksphereglobal.com</span>
+                  <span>enquiry@teksphereglobal.com<br />info@teksphereglobal.com</span>
                 </li>
                 <li className={styles.contactItem}>
                   <span className={`material-symbols-outlined ${styles.contactIcon}`}>location_on</span>
-                  <span>123 Innovation Drive,<br/>Tech City, TC 10101</span>
+                  <span>11, Kudirat Abiola Way, Oregun,<br/>Ikeja, Lagos, Nigeria</span>
                 </li>
               </ul>
             </div>

@@ -106,7 +106,6 @@ const itServices = [
     ),
     title: 'Digital Transformation Consulting',
     description: 'Navigate your digital transformation journey with expert guidance, strategy, and implementation support tailored to your goals.',
-    featured: true,
   },
   {
     id: 'project',
@@ -124,6 +123,7 @@ const itServices = [
 
 export default function SolutionsPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [hoveredItCard, setHoveredItCard] = useState<string | null>(null)
 
   return (
     <div className="solutions-root">
@@ -219,7 +219,9 @@ export default function SolutionsPage() {
             {itServices.map((svc) => (
               <div
                 key={svc.id}
-                className={`solutions-it-card ${svc.featured ? 'solutions-it-card--featured' : ''}`}
+                className={`solutions-it-card ${hoveredItCard === svc.id ? 'solutions-it-card--featured' : ''}`}
+                onMouseEnter={() => setHoveredItCard(svc.id)}
+                onMouseLeave={() => setHoveredItCard(null)}
               >
                 <div className="solutions-it-icon-wrap">
                   {svc.icon}
