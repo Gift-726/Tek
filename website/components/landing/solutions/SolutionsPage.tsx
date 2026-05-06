@@ -1,53 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+
 
 const services = [
-  {
-    id: 'enterprise',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="4" y="8" width="10" height="16" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="18" y="4" width="10" height="20" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M7 12h4M7 16h4M7 20h4M21 8h4M21 12h4M21 16h4M21 20h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Enterprise Infrastructure',
-    description: 'Modernize and optimize your IT infrastructure for enhanced performance and scalability.',
-  },
-  {
-    id: 'cyber',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M16 4L6 8v8c0 7 4.5 11 10 13 5.5-2 10-6 10-13V8L16 4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M11 16l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    title: 'Cybersecurity Solutions',
-    description: 'Protect your business with cutting-edge security measures to secure your data and networks.',
-  },
-  {
-    id: 'building',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="5" y="5" width="22" height="22" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M5 13h22M13 13v14M9 9h2M17 9h6M9 17h2M9 21h2M17 17h6M17 21h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Intelligent Building Systems',
-    description: 'Transform facilities into smart environments for greater efficiency and security.',
-  },
-  {
-    id: 'telephony',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M8 6h5l2 5-3 2a14 14 0 006 6l2-3 5 2v5a2 2 0 01-2 2C10 25 7 10 6 8a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M21 6a6 6 0 016 6M21 10a2 2 0 012 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'Telephony & Communications',
-    description: 'Enhance communication systems with modern telephony and unified communication tools.',
-  },
   {
     id: 'support',
     icon: (
@@ -58,8 +15,59 @@ const services = [
         <path d="M16 26h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
-    title: 'IT Support & Managed Services',
-    description: 'Get professional IT support and managed services for proactive maintenance and monitoring.',
+    title: 'IT Support Services',
+    description: 'We handle outsourcing and consultancy services to help business concentrate on their core functions.',
+    fullContent: `We handle outsourcing and consultancy services to help business concentrate on their core functions. Our IT Support services apply technology to drive an organization’s business goals for greater efficiency, Return-On-Investment (ROI) and value to customers. It is tailored to meet the ‘how’, ‘when’ and ‘where’ needs of any organization.\n\nIt covers both:\n• Support and maintenance\n• Outsourcing and Consultancy Services`
+  },
+  {
+    id: 'security',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 4L6 8v8c0 7 4.5 11 10 13 5.5-2 10-6 10-13V8L16 4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M11 16l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    title: 'Enterprise Security Services',
+    description: 'Integrated security systems providing optimal protection for information assets.',
+    fullContent: `At TekSphere, we help our customers understand and integrate information security systems with existing infrastructure. We combine security solutions with consultancy services and processes to provide optimal protection for our clients valued asset - information. From antivirus and content security software, perimeter security, disaster recovery solutions, authentication systems for centralized multi factor authentication mechanism for enterprise networks and servers, data & email encryption and public key infrastructure technology; we offer solutions businesses need for protection.\n\nOur security solutions are diverse and aimed at addressing the needs of our customers. At TekSphere, we clearly understand the mandate to provide a secure infrastructure. Our suites of security solutions help our customers leverage enterprise class security products to translate business and compliance requirements into reality.`
+  },
+  {
+    id: 'building',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="5" y="5" width="22" height="22" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M5 13h22M13 13v14M9 9h2M17 9h6M9 17h2M9 21h2M17 17h6M17 21h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Intelligent Building Solutions',
+    description: 'Design and implement electronic security solutions tailored to your unique requirements.',
+    fullContent: `As each and every situation has its own unique requirements, we design and implement electronic security solutions from wide range of leading OEM products to offer “fit for purpose” solutions to our clients.\n\nOur expertise covers:\n• Access Control System\n• Video Surveillance System (CCTV)\n• Building Management System\n• Mustering and Evacuation Monitoring System\n• Intrusion Detection System\n• Time & Attendance Solution\n• Visitors Management System`
+  },
+  {
+    id: 'network',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3L3 9l13 6 13-6-13-6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 16l13 6 13-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 23l13 6 13-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    title: 'Network Solutions',
+    description: 'Design, implementation and support of specialized technology areas.',
+    fullContent: `This focuses on the design, implementation and support of following solutions and other specialized technology areas as may be required by the customer:\n\n• Local Area Networks\n• Wide Area Networks\n• Network and Information Security\n• Network Management Solutions\n• Audio-Visual (Video Collaboration Solutions)\n• Unified Communications\n• Servers and Storage Solutions\n• Data Center Solutions\n• Technical Outsourcing Services\n• IT Infrastructure Audit`
+  },
+  {
+    id: 'infrastructure',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="4" y="8" width="10" height="16" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+        <rect x="18" y="4" width="10" height="20" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M7 12h4M7 16h4M7 20h4M21 8h4M21 12h4M21 16h4M21 20h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Enterprise Infrastructure Solutions',
+    description: 'Procuring and implementing infrastructure solutions for Business Operations.',
+    fullContent: `Our Enterprise Infrastructure Solutions service line focuses on procuring and implementing enterprise infrastructure solutions for Business Operations and Business Continuity & Security.\n\nIt currently consists of the following business units/competencies:\n\n• Enterprise Security Solution – Implementing software-based solutions such as security architecture/policy design, PKI, Directory Services etc.\n• Enterprise Management Solutions – Implementing solutions such as Service Desk, VMware, Data Backup and Disaster Recovery.\n• Software Infrastructure Solutions – Implementing solutions for Operating Systems, Messaging, Document Management etc.`
   },
   {
     id: 'software',
@@ -68,10 +76,24 @@ const services = [
         <path d="M10 20l-4-4 4-4M22 12l4 4-4 4M18 8l-4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Custom Software Development',
-    description: 'Develop tailored software solutions that meet your unique business requirements.',
+    title: 'Application Development Services',
+    description: 'Design, development and deployment of custom and generic software applications.',
+    fullContent: `Our application development service line focuses on the design, development and deployment of custom and generic software applications for organizations.\n\nIt currently consists of the following business units/competencies:\n• Line of Business Applications – Developing custom and generic applications to meet specific client needs and the Nigerian market.\n• Business Process Automation and Systems Integration – Developing improvement solutions based on workflow & collaboration and portal solutions.`
+  },
+  {
+    id: 'telephony',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M8 6h5l2 5-3 2a14 14 0 006 6l2-3 5 2v5a2 2 0 01-2 2C10 25 7 10 6 8a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M21 6a6 6 0 016 6M21 10a2 2 0 012 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Telephony Solutions',
+    description: 'Integrated voice and communication systems.',
+    fullContent: `We design, implement and support the following Telephony Solutions:\n\n• Video and Conferencing Solution\n• Multi-media Business Solution\n• Contact Centre / Call Centre Solution`
   },
 ]
+
 
 const itServices = [
   {
@@ -124,6 +146,8 @@ const itServices = [
 export default function SolutionsPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [hoveredItCard, setHoveredItCard] = useState<string | null>(null)
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null)
+
 
   return (
     <div className="solutions-root">
@@ -137,11 +161,12 @@ export default function SolutionsPage() {
               power modern enterprises securely and efficiently.
             </p>
             <a href="#services" className="solutions-learn-btn">
-              Learn More
+              View More
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ marginLeft: 6 }}>
                 <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
+
           </div>
           <div className="solutions-hero-visual" aria-hidden="true">
             {/* Decorative animated graphic */}
@@ -199,12 +224,17 @@ export default function SolutionsPage() {
                 </div>
                 <h3 className="solutions-service-title">{service.title}</h3>
                 <p className="solutions-service-desc">{service.description}</p>
-                <button className="solutions-service-btn">
-                  Learn More
+                <button 
+                  className="solutions-service-btn"
+                  onClick={() => setSelectedService(service)}
+                >
+                  View More
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ marginLeft: 6 }}>
                     <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
+
+
               </div>
             ))}
           </div>
@@ -234,6 +264,37 @@ export default function SolutionsPage() {
         </div>
       </section>
 
+      {/* ── MODAL DETAIL VIEW ── */}
+      {selectedService && (
+        <div className="detail-modal-overlay" onClick={() => setSelectedService(null)}>
+          <div className="detail-modal-content" onClick={e => e.stopPropagation()}>
+            <button className="detail-modal-close" onClick={() => setSelectedService(null)}>
+              <span className="material-symbols-outlined">close</span>
+            </button>
+            <div className="detail-modal-header">
+              <div className="detail-modal-icon">
+                {selectedService.icon}
+              </div>
+              <h2 className="detail-modal-title">{selectedService.title}</h2>
+            </div>
+            <div className="detail-modal-body">
+              {selectedService.fullContent.split('\n').map((line, i) => (
+                <p key={i} className={line.startsWith('•') ? 'detail-modal-list-item' : 'detail-modal-paragraph'}>
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="detail-modal-footer">
+              <Link href="/contact" className="detail-modal-cta">
+                Discuss This Solution
+                <span className="material-symbols-outlined" style={{ marginLeft: 8 }}>arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+
       {/* ── CTA FOOTER BANNER ── */}
       
 
@@ -248,8 +309,9 @@ export default function SolutionsPage() {
 
         /* ── Hero ── */
         .solutions-hero {
-          background: url('/solution-bg.png') center center / cover no-repeat;
+          background: url('/solutionspage-bg.png') center center / cover no-repeat;
           min-height: 440px;
+
           display: flex;
           align-items: center;
           position: relative;
@@ -290,8 +352,10 @@ export default function SolutionsPage() {
           padding: 12px 28px;
           background: #0d1b3e;
           color: #fff;
-          font-size: 0.9rem;
+          font-family: var(--font-sans), sans-serif;
+          font-size: 0.875rem;
           font-weight: 600;
+
           border-radius: 8px;
           text-decoration: none;
           transition: background 0.2s, transform 0.15s;
@@ -445,11 +509,14 @@ export default function SolutionsPage() {
           align-items: center;
           align-self: flex-start;
           margin-top: 8px;
-          padding: 9px 20px;
+          padding: 14px 28px;
+
           background: #0d1b3e;
           color: #fff;
-          font-size: 0.8rem;
+          font-family: var(--font-sans), sans-serif;
+          font-size: 0.875rem;
           font-weight: 600;
+
           border: none;
           border-radius: 8px;
           cursor: pointer;
@@ -671,6 +738,144 @@ export default function SolutionsPage() {
           .solutions-cta-inner { flex-direction: column; text-align: center; }
           .solutions-cta-btn { width: 100%; justify-content: center; }
         }
+
+        /* ── Detail Modal ── */
+        .detail-modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(13, 27, 62, 0.6);
+          backdrop-filter: blur(8px);
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          animation: fadeIn 0.3s ease;
+        }
+
+        .detail-modal-content {
+          background: #ffffff;
+          width: min(720px, 100%);
+          max-height: 85vh;
+          border-radius: 24px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 32px 64px rgba(0,0,0,0.2);
+          animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+          overflow: hidden;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        .detail-modal-close {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid #e8ecf4;
+          background: #ffffff;
+          color: #0d1b3e;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s;
+          z-index: 10;
+        }
+
+        .detail-modal-close:hover {
+          background: #f8f9fc;
+          transform: rotate(90deg);
+        }
+
+        .detail-modal-header {
+          padding: 40px 40px 24px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          border-bottom: 1px solid #f0f2f5;
+        }
+
+        .detail-modal-icon {
+          width: 64px;
+          height: 64px;
+          background: rgba(59,91,219,0.08);
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #3b5bdb;
+          flex-shrink: 0;
+        }
+
+        .detail-modal-title {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: #0d1b3e;
+          margin: 0;
+          letter-spacing: -0.02em;
+        }
+
+        .detail-modal-body {
+          padding: 32px 40px;
+          overflow-y: auto;
+          flex: 1;
+        }
+
+        .detail-modal-paragraph {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #5a6480;
+          margin-bottom: 20px;
+        }
+
+        .detail-modal-list-item {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #5a6480;
+          margin-bottom: 12px;
+          padding-left: 20px;
+          position: relative;
+        }
+
+        .detail-modal-footer {
+          padding: 24px 40px 40px;
+          background: #f8f9fc;
+          border-top: 1px solid #f0f2f5;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .detail-modal-cta {
+          display: inline-flex;
+          align-items: center;
+          padding: 14px 32px;
+          background: #0d1b3e;
+          color: #fff;
+          font-size: 0.95rem;
+          font-weight: 700;
+          border-radius: 12px;
+          text-decoration: none;
+          transition: all 0.2s;
+        }
+
+        .detail-modal-cta:hover {
+          background: #1a2e6e;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(13, 27, 62, 0.2);
+        }
+
       `}</style>
     </div>
   )

@@ -7,9 +7,9 @@ export function ExpertiseSection() {
       <div className={`${styles.container} ${styles.expertiseLayout}`}>
         <div className={styles.expertiseCopy}>
           <p className={`${styles.eyebrow} ${styles.eyebrowOnDark}`}>Our Expertise</p>
-          <h2 className={`${styles.title} ${styles.titleOnDark}`}>
+          {/* <h2 className={`${styles.title} ${styles.titleOnDark}`}>
             Engineering the Future with Technology and Innovation
-          </h2>
+          </h2> */}
           <p className={`${styles.sectionLead} ${styles.sectionLeadOnDark}`}>
             We combine deep domain expertise with emerging technologies to
             build secure, intelligent, and future-ready systems.

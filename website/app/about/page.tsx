@@ -6,6 +6,8 @@ import Image from 'next/image'
 import styles from './about.module.css'
 import { clients } from '../../components/landing/data'
 import Navbar from '../../components/Navbar'
+import { FooterSection } from '../../components/landing/FooterSection'
+
 
 const values = [
   {
@@ -226,7 +228,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className={styles.team}>
+      {/* <section className={styles.team}>
         <div className={`${styles.container} ${styles.teamGrid}`}>
           <div className={styles.teamContent}>
             <div className={styles.eyebrowWrapper}>
@@ -267,114 +269,11 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* ── CTA ── */}
-      <section className={styles.cta}>
-        <div className={`${styles.container} ${styles.ctaInner}`}>
-          <div className={styles.ctaContent}>
-            <h2>Let&apos;s Build the Future Together</h2>
-            <p>We&apos;re committed to helping businesses innovate, scale, and succeed with technology.</p>
-          </div>
-          <div className={styles.ctaActions}>
-            <Link href="/" className={styles.ctaPrimary}>
-              Start Your Project <span className="material-symbols-outlined">arrow_outward</span>
-            </Link>
-            <Link href="/" className={styles.ctaSecondary}>
-              Contact Us <span className="material-symbols-outlined">arrow_outward</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FooterSection showCta={false} />
 
-      {/* ── FOOTER ── */}
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <div className={styles.footerGrid}>
-            <div className={styles.footerInfo}>
-              <div className={styles.logoLink} style={{ cursor: 'default' }}>
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M4 4h9v4H8v4H4V4z" fill="#1a2e6e"/>
-                  <path d="M13 4h11v4h-7v4h-4V4z" fill="#3b5bdb"/>
-                  <path d="M4 12h4v8H4z" fill="#1a2e6e"/>
-                </svg>
-                <span className={styles.logoText}>TEKSPHERE</span>
-              </div>
-              <p>Delivering intelligent technology solutions for a smarter future.</p>
-              <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialIcon} aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="#" className={styles.socialIcon} aria-label="Facebook">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                </a>
-                <a href="#" className={styles.socialIcon} aria-label="Twitter">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-                <a href="#" className={styles.socialIcon} aria-label="YouTube">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                </a>
-              </div>
-            </div>
-            
-            <div className={styles.footerCol}>
-              <h5>Solutions</h5>
-              <ul>
-                <li><Link href="/">Enterprise Infrastructure</Link></li>
-                <li><Link href="/">Cybersecurity</Link></li>
-                <li><Link href="/">Intelligent Building Systems</Link></li>
-                <li><Link href="/">Telephony & Communications</Link></li>
-                <li><Link href="/">Software Development</Link></li>
-              </ul>
-            </div>
-
-            <div className={styles.footerCol}>
-              <h5>Company</h5>
-              <ul>
-                <li><Link href="/about">About Us</Link></li>
-                <li><Link href="/">Careers</Link></li>
-                <li><Link href="/">Case Studies</Link></li>
-                <li><Link href="/">Insights</Link></li>
-                <li><Link href="/">Partners</Link></li>
-              </ul>
-            </div>
-
-            <div className={styles.footerCol}>
-              <h5>Resources</h5>
-              <ul>
-                <li><Link href="/">Blog</Link></li>
-                <li><Link href="/">Whitepapers</Link></li>
-                <li><Link href="/">FAQs</Link></li>
-                <li><Link href="/">Support</Link></li>
-              </ul>
-            </div>
-
-            <div className={styles.footerCol}>
-              <h5>Contact Us</h5>
-              <div className={styles.contactItem}>
-                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>call</span>
-                +234 818 724 5441, +234 805 406 1288
-              </div>
-              <div className={styles.contactItem} style={{ marginTop: '10px' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>mail</span>
-                enquiry@teksphereglobal.com / info@teksphereglobal.com
-              </div>
-              <div className={styles.contactItem} style={{ marginTop: '10px' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>location_on</span>
-                11, Kudirat Abiola Way, Oregun, Ikeja, Lagos, Nigeria
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.footerBottom}>
-            <p>© 2026 TekSphere Global. All rights reserved.</p>
-            <div className={styles.footerLegal}>
-              <Link href="/">Privacy Policy</Link>
-              <Link href="/">Terms of Service</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
+
   )
 }

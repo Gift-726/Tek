@@ -23,7 +23,8 @@
 .hero {
   padding: 180px 0 120px;
   position: relative;
-  background-image: url('/about-hero-bg.png');
+  background-image: url('/about-hero.png');
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

@@ -75,25 +75,18 @@ export default function Navbar() {
               About Us
             </Link>
           </li>
-          <li>
-            <Link 
-              href="/contact" 
-              className={pathname === '/contact' ? styles.activeLink : ''}
-            >
-              Contact
-            </Link>
-          </li>
+
           {/* Mobile CTA inside menu */}
           <li className={styles.mobileCtaLi}>
             <Link href="/contact#contact-form" className={styles.navCta}>
-              Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
+              Contact Us <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
             </Link>
           </li>
         </ul>
 
         {/* Desktop CTA */}
         <Link href="/contact#contact-form" className={`${styles.navCta} ${styles.desktopCta}`}>
-          Let&apos;s Talk <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
+          Contact Us <span className="material-symbols-outlined" style={{ fontSize: '1.1em' }}>arrow_outward</span>
         </Link>
       </div>
 

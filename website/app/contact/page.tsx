@@ -6,11 +6,13 @@ import { useEffect, useState } from 'react'
 import styles from './contact.module.css'
 import Navbar from '../../components/Navbar'
 
+
 const infoCards = [
   {
     icon: 'location_on',
     title: 'Mainland Office',
-    text: '11, Kudirat Abiola Way, Oregun,\nIkeja, Lagos, Nigeria',
+    text: '8, Kudirat Abiola Way, Oregun,\nIkeja, Lagos, Nigeria',
+
   },
   {
     icon: 'call',
@@ -54,10 +56,11 @@ const faqs = [
   'What industries do you serve?',
 ]
 
-const officeAddress = '11, Kudirat Abiola Way, Oregun, Ikeja, Lagos, Nigeria'
-const mapsQuery = encodeURIComponent(officeAddress)
+const officeAddress = '8, Kudirat Abiola Way, Oregun, Ikeja, Lagos, Nigeria'
+const mapsQuery = encodeURIComponent('TekSphere Global Services Limited ' + officeAddress)
 const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
 const embedMapUrl = `https://www.google.com/maps?q=${mapsQuery}&output=embed`
+
 
 export default function ContactPage() {
 
@@ -136,7 +139,8 @@ export default function ContactPage() {
 
             <aside className={styles.visualCard}>
               <Image
-                src="/cta.png"
+                src="/cta-right.png"
+
                 alt="Technology collaboration illustration"
                 fill
                 className={styles.visualImage}
@@ -196,7 +200,7 @@ export default function ContactPage() {
             </div>
           </section>
 
-          <section className={styles.faq}>
+          {/* <section className={styles.faq}>
             <p className={styles.sectionEyebrow}>FAQ</p>
             <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
             <div className={styles.faqList}>
@@ -211,7 +215,7 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
 
           <section className={styles.ctaBand}>
             <div>
@@ -221,9 +225,9 @@ export default function ContactPage() {
               </p>
             </div>
             <div className={styles.ctaActions}>
-              <Link href="/" className={styles.primaryCta}>
+              {/* <Link href="/" className={styles.primaryCta}>
                 Start Your Project <span className="material-symbols-outlined">arrow_outward</span>
-              </Link>
+              </Link> */}
               <Link href="/contact" className={styles.secondaryCta}>
                 Contact Us <span className="material-symbols-outlined">arrow_outward</span>
               </Link>
@@ -232,5 +236,7 @@ export default function ContactPage() {
         </div>
       </main>
     </div>
+
   )
 }
+

@@ -39,48 +39,49 @@ export type Testimonial = {
 
 export const services: ServiceItem[] = [
   {
-    badge: 'EI',
-    title: 'Enterprise Infrastructure Solutions',
+    badge: 'IT',
+    title: 'IT Support Services',
     description:
-      'Robust IT infrastructure solutions designed for performance, scalability, and reliability.',
-    icon: 'EnterpriseIcon',
+      'Our IT Support services apply technology to drive business goals for greater efficiency and value. We handle outsourcing and consultancy services to help businesses concentrate on their core functions.',
+    icon: 'SupportIcon',
   },
   {
-    badge: 'CS',
-    title: 'Cybersecurity Solutions',
+    badge: 'ES',
+    title: 'Enterprise Security Services',
     description:
-      'Advanced security frameworks to protect your business, data, and digital assets.',
+      'We integrate information security systems with existing infrastructure, providing optimal protection from perimeter security to disaster recovery and centralized multi-factor authentication.',
     icon: 'CyberSecurityIcon',
   },
   {
     badge: 'IB',
-    title: 'Intelligent Building Systems',
+    title: 'Intelligent Building Solutions',
     description:
-      'Smart building technologies that enhance safety, comfort, and efficiency.',
+      'We design and implement fit-for-purpose electronic security solutions including Access Control, Video Surveillance (CCTV), and Building Management Systems.',
     icon: 'BuildingIcon',
   },
   {
-    badge: 'TC',
-    title: 'Telephony & Communications',
+    badge: 'NS',
+    title: 'Network Solutions',
     description:
-      'Integrated voice and communication systems that keep your business connected.',
-    icon: 'PhoneIcon',
+      'Design, implementation, and support for Local and Wide Area Networks, Network Management, and IT Infrastructure Audit to ensure robust connectivity.',
+    icon: 'EnterpriseIcon',
   },
   {
-    badge: 'IT',
-    title: 'IT Support & Managed Services',
+    badge: 'AD',
+    title: 'Application Development Services',
     description:
-      'Proactive support and monitoring to ensure smooth operations 24/7.',
-    icon: 'SupportIcon',
-  },
-  {
-    badge: 'SD',
-    title: 'Custom Software Development',
-    description:
-      'Tailored software and web applications that solve real business challenges.',
+      'Design, development, and deployment of custom and generic software applications, focused on business process automation and systems integration.',
     icon: 'CodeIcon',
   },
+  {
+    badge: 'TS',
+    title: 'Telephony Solutions',
+    description:
+      'Integrated voice and communication systems including Video Conferencing, Multi-media Business Solutions, and Contact Centre Solutions.',
+    icon: 'PhoneIcon',
+  },
 ]
+
 
 export const expertiseItems: ExpertiseItem[] = [
   {

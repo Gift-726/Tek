@@ -51,9 +51,8 @@ export function ServicesSection() {
                   </div>
                   <h3 className={styles.cardTitle}>{service.title}</h3>
                   <p className={styles.cardCopy}>{service.description}</p>
-                  <span className={styles.cardAction}>
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>chevron_right</span>
-                  </span>
+
+
                 </article>
               )
             })}

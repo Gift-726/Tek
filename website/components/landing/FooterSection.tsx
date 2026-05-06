@@ -2,20 +2,22 @@ import Link from 'next/link'
 import styles from './landing.module.css'
 
 const solutionLinks = [
-  'Enterprise Infrastructure',
-  'Cybersecurity',
-  'Intelligent Building Systems',
-  'Telephony & Communications',
-  'Software Development',
-  'IT Support & Managed Services',
+  'IT Support Services',
+  'Enterprise Security Services',
+  'Intelligent Building Solutions',
+  'Network Solutions',
+  'Application Development Services',
+  'Telephony Solutions',
 ]
 
-const companyLinks = ['About Us', 'Careers', 'Case Studies', 'Insights', 'Partners']
-const resourceLinks = ['Blog', 'Whitepapers', 'FAQs', 'Support']
+
+const companyLinks = ['Careers', 'About Us Page', 'Partners']
+
+
 
 export function FooterSection({ showCta = true }: { showCta?: boolean }) {
   return (
-    <>
+    <div className={showCta ? styles.footerBackgroundWrapper : ''}>
       {showCta && (
         <section className={`${styles.section} ${styles.ctaSection}`}>
         <div className={`${styles.container} ${styles.ctaLayout}`}>
@@ -69,46 +71,70 @@ export function FooterSection({ showCta = true }: { showCta?: boolean }) {
           </div>
 
           <div className={styles.footerColumns}>
-            <FooterColumn title="Solutions" items={solutionLinks} />
-            <FooterColumn title="Company" items={companyLinks} />
-            <FooterColumn title="Resources" items={resourceLinks} />
-            <div className={styles.footerColumn}>
+            <FooterColumn 
+              title="Solutions" 
+              items={solutionLinks} 
+              columnClassName={styles.solutionsColumn} 
+            />
+            <FooterColumn 
+              title="Company" 
+              items={companyLinks} 
+              columnClassName={styles.companyColumn}
+            />
+            
+            <div className={`${styles.footerColumn} ${styles.contactColumn}`}>
               <h3 className={styles.footerHeading}>Contact Us</h3>
               <ul className={styles.footerList}>
                 <li className={styles.contactItem}>
-                  <span className={`material-symbols-outlined ${styles.contactIcon}`}>call</span>
+                  <div className={styles.contactIconCircle}>
+                    <span className="material-symbols-outlined">call</span>
+                  </div>
                   <span>+234 818 724 5441<br />+234 805 406 1288</span>
                 </li>
                 <li className={styles.contactItem}>
-                  <span className={`material-symbols-outlined ${styles.contactIcon}`}>mail</span>
+                  <div className={styles.contactIconCircle}>
+                    <span className="material-symbols-outlined">mail</span>
+                  </div>
                   <span>enquiry@teksphereglobal.com<br />info@teksphereglobal.com</span>
-                </li>
-                <li className={styles.contactItem}>
-                  <span className={`material-symbols-outlined ${styles.contactIcon}`}>location_on</span>
-                  <span>11, Kudirat Abiola Way, Oregun,<br/>Ikeja, Lagos, Nigeria</span>
                 </li>
               </ul>
             </div>
           </div>
+
+
         </div>
 
         <div className={`${styles.container} ${styles.footerBottom}`}>
-          <span>© 2026 TekSphere Global. All rights reserved.</span>
+          <span>© Copyright by TekSphere Global. All rights reserved.</span>
           <div className={styles.footerMeta}>
             <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <span>Terms of Use</span>
+            <span>Legal</span>
+            <span>Site Map</span>
           </div>
+
         </div>
       </footer>
-    </>
+    </div>
+
   )
 }
 
-function FooterColumn({ title, items }: { title: string; items: string[] }) {
+function FooterColumn({ 
+  title, 
+  items, 
+  columnClassName, 
+  listClassName 
+}: { 
+  title: string; 
+  items: string[]; 
+  columnClassName?: string;
+  listClassName?: string 
+}) {
   return (
-    <div className={styles.footerColumn}>
+    <div className={`${styles.footerColumn} ${columnClassName || ''}`}>
       <h3 className={styles.footerHeading}>{title}</h3>
-      <ul className={styles.footerList}>
+      <ul className={`${styles.footerList} ${listClassName || ''}`}>
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -116,3 +142,5 @@ function FooterColumn({ title, items }: { title: string; items: string[] }) {
     </div>
   )
 }
+
+

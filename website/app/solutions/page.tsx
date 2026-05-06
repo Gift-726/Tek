@@ -18,7 +18,8 @@ export default function Solutions() {
 
       <main className="solutions-view">
         <SolutionsPage />
-        <FooterSection />
+        <FooterSection showCta={false} />
+
       </main>
 
       <style jsx>{`
