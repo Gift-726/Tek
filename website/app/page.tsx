@@ -307,7 +307,7 @@ export default function Page() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: center;
-          padding: 100px 3rem 2rem;
+          padding: 70px 3rem 2rem;
           gap: 2rem;
           position: relative;
           max-width: 1400px;
@@ -452,7 +452,7 @@ export default function Page() {
         /* ── Responsive ─────────────────── */
         @media (max-width: 1100px) {
           .teksphere-hero {
-            padding: 100px 2.5rem 2rem;
+            padding: 40px 2.5rem 2rem;
           }
           .teksphere-headline {
             font-size: 2.8rem;
@@ -462,7 +462,7 @@ export default function Page() {
         @media (max-width: 1024px) {
           .teksphere-hero {
             grid-template-columns: 1fr;
-            padding: 120px 2rem 4rem;
+            padding: 40px 2rem 4rem;
             text-align: center;
             gap: 3rem;
           }
@@ -492,7 +492,7 @@ export default function Page() {
 
         @media (max-width: 600px) {
           .teksphere-hero {
-            padding: 100px 1.25rem 3rem;
+            padding: 40px 1.25rem 3rem;
           }
           .teksphere-headline {
             font-size: 2.25rem;

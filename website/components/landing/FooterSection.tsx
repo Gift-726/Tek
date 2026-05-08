@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './landing.module.css'
 
 const solutionLinks = [
@@ -40,13 +41,13 @@ export function FooterSection({ showCta = true }: { showCta?: boolean }) {
           <div className={styles.footerBrand}>
             <div className={styles.brandRow}>
               <span className={styles.footerLogo}>
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M4 4h9v4H8v4H4V4z" fill="#1a2e6e"/>
-                  <path d="M13 4h11v4h-7v4h-4V4z" fill="#3b5bdb"/>
-                  <path d="M4 12h4v8H4z" fill="#1a2e6e"/>
-                </svg>
+                <Image 
+                  src="/Teksphere_Logo.png" 
+                  alt="TekSphere Logo" 
+                  width={180} 
+                  height={80} 
+                />
               </span>
-              <span className={styles.footerBrandName}>TEKSPHERE</span>
             </div>
             <p className={styles.footerCopy}>
               We deliver intelligent technology solutions
@@ -106,13 +107,6 @@ export function FooterSection({ showCta = true }: { showCta?: boolean }) {
 
         <div className={`${styles.container} ${styles.footerBottom}`}>
           <span>© Copyright by TekSphere Global. All rights reserved.</span>
-          <div className={styles.footerMeta}>
-            <span>Privacy Policy</span>
-            <span>Terms of Use</span>
-            <span>Legal</span>
-            <span>Site Map</span>
-          </div>
-
         </div>
       </footer>
     </div>

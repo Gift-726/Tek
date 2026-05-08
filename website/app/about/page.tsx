@@ -114,26 +114,18 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
-
-      {/* ── VALUES (WHAT DRIVES US) ── */}
-      <section className={styles.values}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.eyebrowWrapper}>
-              <span className={styles.eyebrowDot} />
-              <p className={styles.eyebrow}>What Drives Us</p>
-            </div>
-          </div>
-          <div className={styles.valuesGrid}>
-            {values.map((item, idx) => (
-              <article key={item.title} className={styles.valueCard}>
-                <div className={styles.cardIcon}>
-                   <span className="material-symbols-outlined">{['lightbulb', 'person', 'verified', 'bolt'][idx]}</span>
+        {/* ── STATS (inside hero) ── */}
+        <div className={`${styles.container} ${styles.heroStatsWrap}`}>
+          <div className={styles.heroStats}>
+            {stats.map((item) => (
+              <article key={item.label} className={styles.stat}>
+                <div className={styles.statIcon}>
+                  <span className="material-symbols-outlined">{item.icon}</span>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-                <span className={`material-symbols-outlined ${styles.cardArrow}`}>chevron_right</span>
+                <div className={styles.statContent}>
+                  <h3>{item.value}</h3>
+                  <p>{item.label}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -164,6 +156,29 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── VALUES (WHAT DRIVES US) ── */}
+      <section className={styles.values}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.eyebrowWrapper}>
+              <span className={styles.eyebrowDot} />
+              <p className={styles.eyebrow}>What Drives Us</p>
+            </div>
+          </div>
+          <div className={styles.valuesGrid}>
+            {values.map((item, idx) => (
+              <article key={item.title} className={styles.valueCard}>
+                <div className={styles.cardIcon}>
+                   <span className="material-symbols-outlined">{['lightbulb', 'person', 'verified', 'bolt'][idx]}</span>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── EXPERTISE ── */}
       <section className={styles.expertise}>
         <div className={styles.container}>
@@ -180,54 +195,41 @@ export default function AboutPage() {
               <article key={item.title} className={styles.expertiseCard}>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <span className={`material-symbols-outlined ${styles.cardArrow}`}>chevron_right</span>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US ── */}
-      <section className={styles.why}>
-        <div className={styles.container}>
-          <div className={styles.whyHeader}>
-             <div className={styles.eyebrowWrapper}>
-                <p className={styles.eyebrow} style={{ color: 'rgba(255,255,255,0.6)' }}>Why Choose Us</p>
-              </div>
-              <h2 className={styles.whyTitle}>Built for Performance.<br />Designed for Growth.</h2>
-          </div>
-          <div className={styles.whyGrid}>
-            {whyChooseUs.map((item) => (
-              <article key={item.title} className={styles.whyItem}>
-                <span className={`material-symbols-outlined ${styles.whyIcon}`}>{item.icon}</span>
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
+      {/* ── PARALLAX DARK ZONE: Why Choose Us + Footer ── */}
+      <div className={styles.parallaxDark}>
+
+        {/* ── WHY CHOOSE US ── */}
+        <section className={styles.why}>
+          <div className={styles.container}>
+            <div className={styles.whyHeader}>
+               <div className={styles.eyebrowWrapper}>
+                  <p className={styles.eyebrow} style={{ color: 'rgba(255,255,255,0.6)' }}>Why Choose Us</p>
                 </div>
-              </article>
-            ))}
+                <h2 className={styles.whyTitle}>Built for Performance.<br />Designed for Growth.</h2>
+            </div>
+            <div className={styles.whyGrid}>
+              {whyChooseUs.map((item) => (
+                <article key={item.title} className={styles.whyItem}>
+                  <span className={`material-symbols-outlined ${styles.whyIcon}`}>{item.icon}</span>
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── STATS ── */}
-      <section className={styles.container}>
-        <div className={styles.stats}>
-          {stats.map((item) => (
-            <article key={item.label} className={styles.stat}>
-              <div className={styles.statIcon}>
-                <span className="material-symbols-outlined">{item.icon}</span>
-              </div>
-              <div className={styles.statContent}>
-                <h3>{item.value}</h3>
-                <p>{item.label}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
 
       {/* ── TEAM ── */}
+
       {/* <section className={styles.team}>
         <div className={`${styles.container} ${styles.teamGrid}`}>
           <div className={styles.teamContent}>
@@ -271,7 +273,9 @@ export default function AboutPage() {
         </div>
       </section> */}
 
-      <FooterSection showCta={false} />
+        <FooterSection showCta={false} />
+
+      </div>{/* end parallaxDark */}
 
     </div>
 

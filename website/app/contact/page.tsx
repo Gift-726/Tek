@@ -11,7 +11,7 @@ const infoCards = [
   {
     icon: 'location_on',
     title: 'Mainland Office',
-    text: '8, Kudirat Abiola Way, Oregun,\nIkeja, Lagos, Nigeria',
+    text: '11, Kudirat Abiola Way, Oregun,\nIkeja, Lagos, Nigeria',
 
   },
   {
@@ -34,18 +34,21 @@ const infoCards = [
 const quickActions = [
   {
     icon: 'work',
-    title: 'Start a Project',
-    text: 'Let us put your idea into motion.',
+    title: 'Solutions',
+    text: 'Explore our technology offerings.',
+    href: '/solutions',
   },
   {
     icon: 'handshake',
-    title: 'Partnership',
-    text: 'Join forces for growth and impact.',
+    title: 'About Us',
+    text: 'Learn more about our mission.',
+    href: '/about',
   },
   {
-    icon: 'support_agent',
-    title: 'Support',
-    text: 'Get fast, expert technical help.',
+    icon: 'home',
+    title: 'Back Home',
+    text: 'Return to the main landing page.',
+    href: '/',
   },
 ]
 
@@ -132,14 +135,14 @@ export default function ContactPage() {
                   <button type="submit" className={styles.sendBtn}>
                     Send Message <span className="material-symbols-outlined">arrow_outward</span>
                   </button>
-                  <p className={styles.privacy}>We respect your privacy. Your information is safe with us.</p>
+
                 </div>
               </form>
             </article>
 
             <aside className={styles.visualCard}>
               <Image
-                src="/cta-right.png"
+                src="/contactform.png"
 
                 alt="Technology collaboration illustration"
                 fill
@@ -181,13 +184,11 @@ export default function ContactPage() {
             <p className={styles.sectionEyebrow}>QUICK HELP SECTIONS</p>
             <div className={styles.sectionTitleRow}>
               <h2 className={styles.sectionTitle}>Quick Actions</h2>
-              <Link href="/" className={styles.faqLink}>
-                View all FAQs <span className="material-symbols-outlined">arrow_outward</span>
-              </Link>
+
             </div>
             <div className={styles.quickGrid}>
               {quickActions.map((item) => (
-                <Link key={item.title} href="/" className={styles.quickCard}>
+                <Link key={item.title} href={item.href} className={styles.quickCard}>
                   <div className={styles.iconWrap}>
                     <span className="material-symbols-outlined">{item.icon}</span>
                   </div>
@@ -228,9 +229,7 @@ export default function ContactPage() {
               {/* <Link href="/" className={styles.primaryCta}>
                 Start Your Project <span className="material-symbols-outlined">arrow_outward</span>
               </Link> */}
-              <Link href="/contact" className={styles.secondaryCta}>
-                Contact Us <span className="material-symbols-outlined">arrow_outward</span>
-              </Link>
+
             </div>
           </section>
         </div>

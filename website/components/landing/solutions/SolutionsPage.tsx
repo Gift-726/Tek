@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 
@@ -147,6 +147,18 @@ export default function SolutionsPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [hoveredItCard, setHoveredItCard] = useState<string | null>(null)
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null)
+
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [selectedService])
+
 
 
   return (
@@ -309,7 +321,8 @@ export default function SolutionsPage() {
 
         /* ── Hero ── */
         .solutions-hero {
-          background: url('/solutionspage-bg.png') center center / cover no-repeat;
+          background: url('/solutions.png') center center / cover no-repeat fixed;
+          background-attachment: fixed;
           min-height: 440px;
 
           display: flex;

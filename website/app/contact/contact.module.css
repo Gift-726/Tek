@@ -1,6 +1,11 @@
 .contactPage {
   min-height: 100vh;
-  background: #f6f8fc;
+  background-color: #f6f8fc;
+  background-image: url('/hero-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
   color: #0d1b3e;
 }
 

@@ -276,7 +276,7 @@
   border-radius: 9px;
   background: #ffffff;
   color: var(--landing-primary);
-  border: 1px solid color-mix(in srgb, var(--landing-secondary) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--landing-primary) 20%, transparent);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -285,8 +285,9 @@
 }
 
 .exploreButton:hover {
-  border-color: var(--landing-secondary);
-  color: var(--landing-secondary);
+  background: var(--landing-primary);
+  border-color: var(--landing-primary);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -416,13 +417,13 @@
 
 .processLinePathActive {
   fill: none;
-  stroke: var(--landing-secondary);
+  stroke: var(--landing-primary);
   stroke-width: 2.5;
   stroke-linecap: square;
   stroke-linejoin: miter;
   opacity: 0;
   transition: stroke-dashoffset 0.15s ease-out, opacity 0.4s ease;
-  filter: drop-shadow(0 0 4px var(--landing-secondary));
+  filter: drop-shadow(0 0 4px var(--landing-primary));
 }
 
 .isVisible {
@@ -457,9 +458,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--landing-secondary);
+  color: var(--landing-primary);
   background: var(--landing-tertiary);
-  border: 1px solid color-mix(in srgb, var(--landing-secondary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--landing-primary) 18%, transparent);
   box-shadow: 0 12px 28px color-mix(in srgb, var(--landing-primary) 8%, transparent);
   position: relative;
   z-index: 1;
@@ -468,9 +469,9 @@
 }
 
 .badgeActive {
-  border-color: var(--landing-secondary) !important;
+  border-color: var(--landing-primary) !important;
   transform: scale(1.1);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--landing-secondary) 30%, transparent) !important;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--landing-primary) 30%, transparent) !important;
 }
 
 
@@ -482,7 +483,7 @@
 .stepNumber {
   font-size: 16px;
   line-height: 1;
-  color: var(--landing-secondary);
+  color: var(--landing-primary);
 }
 
 .statsGrid {
@@ -596,8 +597,8 @@
   width: 28px;
   height: auto;
   object-fit: contain;
-  /* Filter to approximate #3B82F6 blue from black */
-  filter: invert(45%) sepia(94%) saturate(1500%) hue-rotate(195deg) brightness(98%) contrast(98%);
+  /* Filter to approximate #0A1128 primary color from black */
+  filter: invert(6%) sepia(32%) saturate(4681%) hue-rotate(218deg) brightness(95%) contrast(105%);
 }
 
 .testimonialCopy {
@@ -631,12 +632,12 @@
   padding: 0;
   border: 0;
   cursor: pointer;
-  background: color-mix(in srgb, var(--landing-secondary) 22%, transparent);
+  background: color-mix(in srgb, var(--landing-primary) 22%, transparent);
   transition: all 0.3s ease;
 }
 
 .carouselDotActive {
-  background: var(--landing-secondary);
+  background: var(--landing-primary);
   width: 24px;
 }
 
@@ -713,7 +714,7 @@
   padding: 60px 0 40px;
   background: var(--landing-tertiary);
   width: min(1280px, calc(100% - 48px));
-  margin: 0 auto 48px;
+  margin: 0 auto 40px;
   border-radius: 40px;
   border: 1px solid color-mix(in srgb, var(--landing-primary) 8%, transparent);
   box-shadow: 0 20px 50px rgba(0,0,0,0.03);
